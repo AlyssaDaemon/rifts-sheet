@@ -1,6 +1,0 @@
-<div id="characterSelect">
-  <div>
-    <div ng-repeat="char in c">
-    </div>
-  </div>
-</div>
