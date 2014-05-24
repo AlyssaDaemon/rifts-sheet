@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rifts Character Sheet</title>
+    <!-- Apple Web App content -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-tile" content="RiftsScreen" />
+    <!-- Stylesheets and Icons -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/quill.snow.css" />
+    <link rel="icon" type="image/png" href="img/icon-512.png" size="512x512" />
+    <link rel="apple-touch-icon-precomposed" href="img/icon-512.png" />
+    <link rel="apple-touch-icon-precomposed" size="128x128" href="img/icon-128" />
+    <link rel="icon" type="image/png" href="img/icon-32.png" size="32x32" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-TileImage" content="img/icon-152.png" />
+    <!-- Prefetch -->
+    <link rel="prefetch" href="fonts/fontawesome-webfont.svg?v4.1.0#fontawesomeregular" />
+    <!-- Scripts -->
+    <!-- <script type="text/javascript" src="js/quill.js"></script> -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/angular-chrome-apps.js"></script>
+    <script type="text/javascript" src="js/common-objects.js"></script>
+    <script type="text/javascript" src="js/google-controller.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+  <body ng-app="riftsScreen" ng-csp>
+      <nav>
+        <ul>
+          <li><a href="#/"><img src='/img/rifts-white.png' alt="Rifts Character Sheet" /></a></li>
+          <li><span>File</span>
+            <ul>
+              <li id="new"><a href="#/new"><i class="fa fa-file-o fa-fw"></i>New</a></li>
+              <li id="save"><a href="#/save"><i class="fa fa-floppy-o fa-fw"></i>Save</a></li>
+              <li id="saveAs">
+                <a href="#/saveAs">
+                  <span class="fa fa-fw fa-stack">
+                    <i class="fa fa-floppy-o fa-stack-1x"></i>
+                    <i class="fa fa-share fa-stack" style="font-size:x-small;left:39%;bottom:25%;"></i>
+                  </span>Save As...</a></li>
+              <li id="sync"><a href="#/sync"><i class="fa fa-refresh fa-fw"></i>Sync</a><li>
+              <li id="load"><a href="#/open"><i class="fa fa-folder-open-o fa-fw"></i>Load</a></li>
+              <hr style="margin:0;padding: 0;"/>
+              <li id="quit"><i class="fa fa-power-off fa-fw"></i>Quit</li>
+            </ul>
+          </li>
+          <li><a href="#character">Character</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#combat">Combat</a></li>
+          <li><a href="#inv">Inventory</a></li>
+          <li><a href="#vehicle">Vehicle</a></li>
+          <li><a href="#magic">Spells</a></li>
+          <li><a href="#notes">Notes</a></li>
+        </ul>
+      </nav>
+    <div id="viewport" ng-view>
+      <p> Let's see if this goes away </p>
+    </div>
+  </body>
+</html>

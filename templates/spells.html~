@@ -1,0 +1,32 @@
+<div>
+  <div id="spellScreen">
+    <h2>Spells</h2>
+    <hr />
+    <table>
+      <thead>
+        <tr>
+          <th class="spellName">Name</th>
+          <th class="spellEffect">Effect</th>
+          <th class="spellDuration">Duration</th>
+          <th class="spellUse">Use</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="spell in c" class="spellObject">
+          <td class="spellName"><input type="text" ng-model="spell.name" /></td>
+          <td class="spellEffect"><input type="text" ng-model="spell.effect" /></td>
+          <td class="spellDuration"><input type="text" ng-model="spell.duration" /></td>
+          <td class="spellUse"><input type="text" ng-model="spell.use" /></td>
+          <td>
+            <button type="button" ng-click="delSpell($index)" class="btn btn-danger btn-xs">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="button" ng-click="addSpell()" value="[Add Spell]"/>
+  </div>
+</div>
+     

@@ -1,0 +1,38 @@
+<div id="skillSheet">
+  <div id="occSkills">
+    <h2>O.C.C. Skills</h2>
+    <div class="skillObject" ng-repeat="skill in c.occ">
+      <input class="skillName" type="text" ng-model="skill.name">+
+      <input type="number" ng-model="skill.rate"/>%/Lvl
+      <input type="number" ng-model="skill.lvl"/>%
+      <button type="button" ng-click="delOCCSkill($index)" class="btn btn-danger btn-xs">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <input class="addButton" type="button" ng-click="addOCCSkill()" value="[Add Skill]" />
+  </div>
+  <div id="occRelatedSkills">
+    <h2>O.C.C. Related Skills</h2>
+    <div class="skillObject" ng-repeat="skill in c.related">
+      <input class="skillName"  type="text" ng-model="skill.name">+
+      <input type="number" ng-model="skill.rate"/>%/Lvl
+      <input type="number" ng-model="skill.lvl"/>%
+      <button type="button" ng-click="delRelatedSkill($index)" class="btn btn-danger btn-xs">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <input class="addButton" type="button" ng-click="addRelatedSkill()" value="[Add Skill]" />
+  </div>
+  <div id="secondarySkills">
+    <h2>Secondary Skills</h2>
+    <div class="skillObject" ng-repeat="skill in c.secondary">
+      <input class="skillName" type="text" ng-model="skill.name">+
+      <input type="number" ng-model="skill.rate"/>%/Lvl
+      <input type="number" ng-model="skill.lvl"/>%
+      <button type="button" ng-click="delSecondarySkill($index)" class="btn btn-danger btn-xs">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <input class="addButton" type="button" ng-click="addSecondarySkill()" value="[Add Skill]" />
+  </div>
+</div>

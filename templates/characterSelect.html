@@ -1,0 +1,19 @@
+<div id="characterSelect">
+  <div id="characterBox">
+    <div>
+      <div ng-repeat="char in list" class="characterObject Object">
+        <div ng-click="loadChar($index)">
+          <span class="charSelectName">{{ char.name }}</span><br />
+          <span ng-if="char.hp.max">HP:{{char.hp.cur}}/{{char.hp.max}}</span>
+          <span>M.D.C: {{char.mdc.cur}}/{{char.mdc.max}}</span><br />
+          <span ng-if="char.occ">{{char.occ}}</span><span ng-if="char.rcc">{{ char.rcc }}</span><br />
+          <span>Last Modified on: {{ char.metadata.last_modified | date }} </span>
+        </div>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="delChar($index)">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <input type="button" class="addButton" ng-click="newChar()" value="[ New Character ]" />
+  </div>
+</div>

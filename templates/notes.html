@@ -1,0 +1,22 @@
+<div id="notesScreen" autoscroll>
+  <div>
+    <div id="noteSelectScreen">
+      <div ng-repeat="note in c" class="noteObject Object" autoscroll="true">
+        <div ng-click="noteSelect($index)">
+          <span>{{$index + 1}}</span>
+          <input ng-model="note.date" type="date" /> <span>{{note.title}}</span>
+          <button type="button" ng-click="delNote($index)" class="btn btn-danger btn-xs noteDelete"><i class="fa fa-times"></i></button>
+        </div>
+      </div>
+    </div>
+    <input class="addButton" type="button" ng-click="addNote()" value="[ Add Note ]" />
+  </div>
+  <div ng-if="selected_note" id="selectedNote">
+    <div>
+      Title: <input ng-model="selected_note.title" type="text" />
+      Date:  <input ng-model="selected_note.date" type="date" />
+    </div>
+    <textarea ng-model="selected_note.note.text"></textarea>
+  </div>
+</div>
+

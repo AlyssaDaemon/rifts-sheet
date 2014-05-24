@@ -1,0 +1,20 @@
+{
+    "name": "RiftsScreen",
+    "description": "Open source Rifts RPG character sheet.",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "offline_enabled": true,
+    "permissions": ["storage", "unlimitedStorage", "syncFileSystem", {"fileSystem": ["write"]}],
+    "app": {
+        "background": {
+            "scripts": ["background.js"]
+        }
+    },
+    "icons": {
+        "16": "/img/icon-16.png",
+        "32": "/img/icon-32.png",
+        "48": "/img/icon-48.png",
+        "128": "/img/icon-128.png",
+        "512": "/img/icon-512.png"
+    }
+}

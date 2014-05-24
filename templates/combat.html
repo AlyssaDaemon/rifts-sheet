@@ -1,0 +1,228 @@
+<div id="combatScreen">
+  <div id="combatScreenH2H">
+    <h3>Hand to Hand</h3>
+    <b>H2H Skill</b><input type="text" ng-model="c.h2hskill.level" />
+    <b>Attacks Per Melee:</b><input type="number" ng-model="c.h2hskill.atksPerMelee.cur" />/
+    <input type="number" ng-model="c.h2hskill.atksPerMelee.max"/>
+    <b>K.O. on:</b><input type="number" ng-model="c.h2hskill.ko_on"/>
+    <b>Critical on:</b><input type="number" ng-model="c.h2hskill.crit_on"/>
+    <b>Deathblow on:</b><input type="number" ng-model="c.h2hskill.deathblow_on"/>
+    <b>Pin on:</b><input type="number" ng-model="c.h2hskill.pin_on"/>
+    <div id="combatScreenBonuses">
+      <h4>Bonuses</h4>
+      <b>Damage:</b>+<input type="number" ng-model="c.h2hskill.bonus.damage"/>
+      <b>Strike:</b>+<input type="number" ng-model="c.h2hskill.bonus.strike"/>
+      <b>Parry:</b>+<input type="number" ng-model="c.h2hskill.bonus.parry"/>
+      <b>Dodge:</b>+<input type="number" ng-model="c.h2hskill.bonus.dodge"/>
+      <b>Pull Punch:</b>+<input type="number" ng-model="c.h2hskill.bonus.pull_punch"/>
+      <b>Initiative:</b>+<input type="number" ng-model="c.h2hskill.bonus.initiative"/>
+      <b>Entangle:</b>+<input type="number" ng-model="c.h2hskill.bonus.entangle"/>
+      <b>Disarm:</b>+<input type="number" ng-model="c.h2hskill.bonus.disarm"/>
+      <b>Roll with Punch/Fall:</b>+<input type="number" ng-model="c.h2hskill.bonus.fall"/>
+    </div>
+    <div id="combatScreenH2Hatks">
+      <i>Hand to Hand Attacks</i>
+      Restrained Punch:<input type="text" ng-model="c.h2hskill.atks.restrained"/>
+      Normal Punch:<input type="text" ng-model="c.h2hskill.atks.normal"/>
+      Power Punch:<input type="text" ng-model="c.h2hskill.atks.power"/>
+      Normal Kick:<input type="text" ng-model="c.h2hskill.atks.kick"/>
+      Leap Kick:<input type="text" ng-model="c.h2hskill.atks.leap"/>
+      Tackle:<input type="text" ng-model="c.h2hskill.atks.tackle"/>
+      Flip/Throw:<input type="text" ng-model="c.h2hskill.atks.flip"/>
+      Bite:<input type="text" ng-model="c.h2hskill.atks.bite"/>
+      Stomp:<input type="text" ng-model="c.h2hskill.atks.stomp"/>
+    </div>
+    <div id="combatScreenBodyArmor">
+      <h3>Body Armor</h3>
+      Type:<input type="text" ng-model="c.bodyArmor.type"/>
+      A.R.<i>(if applicable)</i>:<input type="text" ng-model="c.bodyArmor.ar"/><br />
+      M.D.C. By Location:
+      <div id="MDCLocation">
+          <div class="MDCByLocationObject" ng-repeat="mdc in c.bodyArmor.mdc">
+            <input class="MDCName" type="text" ng-model="mdc.name">:
+            <input type="number" ng-model="mdc.value.cur"/>/
+            <input type="number" ng-model="mdc.value.max"/>
+            <button class="btn btn-danger btn-xs" ng-click="delMDCByLocation($index)">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+      </div>
+      <input type="button" ng-click="newMDCByLocation()" value="[ Add MDC Location ]"/><br />
+      Prowl:-<input type="number" ng-model="c.bodyArmor.prowl"/>%
+      Climb:-<input type="number" ng-model="c.bodyArmor.climb"/>%
+      Swim:-<input type="number" ng-model="c.bodyArmor.swim"/>%
+      Additional Features:<br /><textarea ng-model="c.bodyArmor.notes"></textarea>
+    </div>
+  </div>
+  <div id="combatScreenWeapons">
+    <div id="combatScreenAncientWeapons">
+      <table>
+        <thead>
+          <tr>
+            <th class="ancientWeaponName">Ancient Weapons</th>
+            <th class="ancientWeaponDamage">Damage</th>
+            <th class="ancientWeaponWeight">Weight</th>
+            <th class="ancientWeaponBonus">(+strike/+parry/+throw)</th>
+            <th class="ancientWeaponProficiency">Weapon Profiency</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ancientWeaponObject" ng-repeat="wep in c.weapons.ancient">
+            <td class="ancientWeaponName"><input type="text" ng-model="wep.name"/></td>
+            <td class="ancientWeaponDamage"><input type="text" ng-model="wep.damage"/></td>
+            <td class="ancientWeaponWeight"><input type="number" ng-model="wep.weight"/></td>
+            <td class="ancientWeponBonus">
+              (+<input type="number" ng-model="wep.strike"/>/
+              +<input type="number" ng-model="wep.parry"/>/
+              +<input type="number" ng-model="wep.throw"/>)
+            </td>
+            <td class="ancientWeaponProficiency">
+              <input type="text" ng-model="wep.proficiency"/>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger btn-xs" ng-click="delAncientWep($index)">
+                <i class="fa fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" ng-click="addAncientWep()" value="[Add Ancient Weapon]"/>
+    </div>
+    <div id="combatScreenModernWeapons">
+      <table>
+        <thead>
+          <tr>
+            <th class="modernWeaponName">Modern Weapon</th>
+            <th class="modernWeaponDamage">Damage</th>
+            <th class="modernWeaponRange">Range</th>
+            <th class="modernWeaponPayload">Payload</th>
+            <th class="modernWeaponBonus">+Aim/Burst</th>
+            <th class="modernWeaponRate">Rate of Fire</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="modernWeaponObject" ng-repeat="wep in c.weapons.modern">
+            <td class="modernWeaponName"><input type="text" ng-model="wep.name"/></td>
+            <td class="modernWeaponDamage"><input type="text" ng-model="wep.damage"/></td>
+            <td class="modernWeaponRange"><input type="number" ng-model="wep.range"/>m</td>
+            <td class="modernWeaponPayload">
+              <input type="number" ng-model="wep.payload.cur"/>/
+              <input type="number" ng-model="wep.payload.max">
+            </td>
+            <td class="modernWeaponBonus">
+              (+<input type="number" ng-model="wep.aim"/>
+              /+<input type="number" ng-model="wep.burst"/>)
+            </td>
+            <td class="modernWeaponRate"><input type="text" ng-model="wep.rate"/></td>
+            <td>
+              <button type="button" ng-click="delModernWep($index)" class="btn btn-danger btn-xs">
+                <i class="fa fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" ng-click="addModernWep()" value="[Add Modern Weapon]"/>
+    </div>
+    <div id="combatScreenExplosives">
+      <table>
+        <thead>
+          <tr>
+            <td class="explosiveName">Explosive Ordinace</td>
+            <td class="explosiveDamage">Damage</td>
+            <td class="explosiveRadius">Blast Radius</td>
+            <td class="explosiveWeight">Weight Per Charge</td>
+            <td class="explosivePayload">Payload</td>
+            <td class="explosiveTimer">Timer</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="explosiveWeaponObject" ng-repeat="wep in c.weapons.ordinance">
+            <td class="explosiveName"><input type="text" ng-model="wep.name"/></td>
+            <td class="explosiveDamage"><input type="text" ng-model="wep.damage"/></td>
+            <td class="explosiveRadius"><input type="number" ng-model="wep.radius"/>m</td>
+            <td class="explosiveWeight"><input type="number" ng-model="wep.weight"/>kg</td>
+            <td class="explosivePayload"><input type="number" ng-model="wep.payload"/></td>
+            <td class="explosiveTimer"><input type="text" ng-model="wep.timer"/></td>
+            <td>
+              <button type="button" ng-click="delExplosive($index)" class="btn btn-danger btn-xs">
+                <i class="fa fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" ng-click="addExplosive()" value="[Add Explosive Ordinance]">
+    </div>
+    <div id="combatScreenProfiencies">
+      <div id="combatScreenAncientProf">
+        <h3>Ancient Profiences</h3>
+        <table>
+          <thead>
+            <tr>
+              <td class="ancientProfName">W.P. Ancient</td>
+              <td class="ancientProfStrike">+Strike</td>
+              <td class="ancientProfParry">+Parry</td>
+              <td class="ancientProfThrow">+Throw</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ancientProfObject" ng-repeat="profs in c.weapons.prof.ancient">
+              <td class="ancientProfName"><input type="text" ng-model="profs.name"/></td>
+              <td class="ancientProfStrike">
+                <input type="number" ng-model="profs.strike.value"/>
+                (+1@lvl<input type="text" ng-model="profs.strike.levels"/>)
+              </td>
+              <td class="ancientProfParry">
+                <input type="number" ng-model="profs.parry.value"/>
+                (+1@lvl<input type="text" ng-model="profs.parry.levels"/>)
+              </td>
+              <td class="ancientProfThrow">
+                <input type="number" ng-model="profs.throw.value"/>
+                (+1@lvl<input type="text" ng-model="profs.throw.levels"/>)
+              </td>
+              <td>
+                <button type="button" ng-click="delAncientProf($index)" class="btn btn-danger btn-xs">
+                  <i class="fa fa-times"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <input id="newAncientProf" type="button" ng-click="addAncientProf()" value="[Add Ancient Proficency]"/>
+      </div>
+      <div id="combatScreenModernProf">
+        <h3>Modern Profiences</h3>
+        <table>
+          <thead>
+            <tr>
+              <td class="modernProfName">W.P. Modern</td>
+              <td class="modernProfLevel">Level</td>
+              <td class="modernProfAim">+Aim</td>
+              <td class="modernProfBurst">+Burst</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="modernProfObject" ng-repeat="prof in c.weapons.prof.modern">
+              <td class="modernProfName"><input type="text" ng-model="prof.name"/></td>
+              <td class="modernProfLevel"><input type="number" ng-model="prof.level"/></td>
+              <td class="modernProfAim"><input type="number" ng-model="prof.aim"/></td>
+              <td class="modernProfBurst"><input type="number" ng-model="prof.burst"/></td>
+              <td>
+                <button type="button" ng-click="delModernProf($index)" class="btn btn-danger btn-xs">
+                  <i class="fa fa-times"></i>
+                </button>
+              </td>
+            </tr>
+        </table>
+        <input id="newModernProf" type="button" ng-click="addModernProf()" value="[Add Modern Proficency]"/>
+      </div>
+    </div>
+  </div>
+</div>
