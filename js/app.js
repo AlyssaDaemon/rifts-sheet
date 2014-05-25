@@ -68,10 +68,72 @@ Riftsapp.controller('openController', function($scope){
 
 Riftsapp.controller('bioScreen', function($scope){
   $scope.c = rifts.characterList[rifts.index];
+  $scope.addHistory = function() {
+    $scope.c.history.push(new History());
+  }
+
+  $scope.delHistory = function(index) {
+    $scope.c.history.splice(index, 1);
+  }
+  $scope.addSibling = function() {
+    $scope.c.family.siblings.push(new Sibling());
+  }
+
+  $scope.delSibling = function(index) {
+    $scope.c.family.siblings.splice(index, 1);
+  }
 });
 
 Riftsapp.controller('vehicleScreen', function($scope){
   $scope.c = rifts.characterList[rifts.index];
+  $scope.newVehicle = function() {
+    $scope.c.vehicles.push(new Vehicle());
+  }
+  $scope.delVehicle = function(index) {
+    $scope.c.vehicles.splice(index, 1);
+  }
+  $scope.addVMDC = function(index){
+    $scope.c.vehicles[index].mdc.push(new MDCByLocation());
+  }
+  $scope.delVMDC = function(vindex, index){
+    $scope.c.vehicles[index].mdc.splice(index, 1);
+  }
+  $scope.addVH2H = function(index) {
+    $scope.c.vehicles[index].atks.push(new VehicleH2H());
+  }
+  $scope.delVH2H = function(vindex, index) {
+    $scope.c.vehicles[vindex].atks.splice(index, 1);
+  }
+  $scope.addWepSys = function(index) {
+    $scope.c.vehicles[index].atks.push(new WeaponSystem());
+  }
+  $scope.delWepSys = function(vindex, index) {
+    $scope.c.vehicles[vindex].weapons.splice(index, 1);
+  }
+  $scope.delAmmo = function(index) {
+    $scope.c.inventory.ammo.splice(index, 1);
+  }
+  $scope.addAmmo = function() {
+    $scope.c.inventory.ammo.push(new InventoryItem());
+  }
+  $scope.delBackPack = function(index) {
+    $scope.c.inventory.backpack.splice(index, 1);
+  }
+  $scope.addBackPack = function() {
+    $scope.c.inventory.backpack.push(new InventoryItem());
+  }
+  $scope.delPersonal = function(index){
+    $scope.c.inventory.personal.splice(index, 1);
+  }
+  $scope.addPersonal = function(){
+    $scope.c.inventory.personal.push(new InventoryItem());
+  }
+  $scope.delCargo = function(index){
+    $scope.c.inventory.cargo.splice(index, 1);
+  }
+  $scope.addCargo = function(){
+    $scope.c.inventory.cargo.push(new InventoryItem());
+  }
 });
 
 Riftsapp.controller('characterSelectScreen', function($scope){
@@ -92,29 +154,6 @@ Riftsapp.controller('characterSelectScreen', function($scope){
 Riftsapp.controller('characterScreen', function($scope){
   $scope.c = rifts.characterList[rifts.index];
 
-  $scope.addImplant = function() {
-    $scope.c.abilities.push(new Ability());
-  }
-
-  $scope.delImplant = function(index) {
-    $scope.c.abilities.splice(index, 1);
-  }
-
-  $scope.addSibling = function() {
-    $scope.c.family.siblings.push(new Sibling());
-  }
-
-  $scope.delSibling = function(index) {
-    $scope.c.family.siblings.splice(index, 1);
-  }
-
-  $scope.addHistory = function() {
-    $scope.c.history.push(new History());
-  }
-
-  $scope.delHistory = function(index) {
-    $scope.c.history.splice(index, 1);
-  }
   $scope.addOCCSkill = function(){
     $scope.c.occ.push(new Skill());
   }
@@ -185,29 +224,12 @@ Riftsapp.controller('combatScreen', function($scope){
   $scope.delMDCByLocation = function(index){
     $scope.c.bodyArmor.mdc.splice(index, 1);
   }
-  $scope.delAmmo = function(index) {
-    $scope.c.inventory.ammo.splice(index, 1);
+  $scope.addSibling = function() {
+    $scope.c.family.siblings.push(new Sibling());
   }
-  $scope.addAmmo = function() {
-    $scope.c.inventory.ammo.push(new InventoryItem());
-  }
-  $scope.delBackPack = function(index) {
-    $scope.c.inventory.backpack.splice(index, 1);
-  }
-  $scope.addBackPack = function() {
-    $scope.c.inventory.backpack.push(new InventoryItem());
-  }
-  $scope.delPersonal = function(index){
-    $scope.c.inventory.personal.splice(index, 1);
-  }
-  $scope.addPersonal = function(){
-    $scope.c.inventory.personal.push(new InventoryItem());
-  }
-  $scope.delCargo = function(index){
-    $scope.c.inventory.cargo.splice(index, 1);
-  }
-  $scope.addCargo = function(){
-    $scope.c.inventory.cargo.push(new InventoryItem());
+
+  $scope.delSibling = function(index) {
+    $scope.c.family.siblings.splice(index, 1);
   }
 });
 
@@ -247,4 +269,10 @@ initControllerComponents();
 window.onload = function() {
   initControllerComponents();
   rifts.index = 0;
+  if (window.navigator.onLine){
+    window.applicationCache.update();
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY){
+      window.applicationCache.swapCache();
+    }
+  }
 }

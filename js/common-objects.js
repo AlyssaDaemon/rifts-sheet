@@ -4,7 +4,7 @@ function Note(){
     richtext: null
   }
   this.title = null;
-  this.date = new Date();
+  this.date = new Date(Date.now());
 }
 
 function Skill(){
@@ -137,9 +137,10 @@ function Vehicle(){
     up: 0,
     across: 0
   }
-  this.weapons = []; //use WeaponSystem()
-  this.atks = []; //use VehicleH2H()
-  this.rpa = []; //use RPASkill()
+  this.weapons = [new WeaponSystem()]; //use WeaponSystem()
+  this.atks = [new VehicleH2H()]; //use VehicleH2H()
+  this.rpa = [new RPASkill()]; //use RPASkill()
+  this.mdc = [new MDCByLocation()];
 }
 
 function RPASkill(){
@@ -362,15 +363,15 @@ function Character(){
   }
   this.history = [], //new Array(new History());
   this.inventory = {
-    backpack: [], //new Array(new InventoryItem()),
-    ammo: [], //new Array(new InventoryItem()),
-    personal: [], //new Array(new InventoryItem()),
-    cargo: [], //new Array(new InventoryItem())
+    backpack: [new InventoryItem()], //new Array(new InventoryItem()),
+    ammo: [new InventoryItem()], //new Array(new InventoryItem()),
+    personal: [new InventoryItem()], //new Array(new InventoryItem()),
+    cargo: [new InventoryItem()], //new Array(new InventoryItem())
   }
   this.savings = 0;
   this.spells = [], //new Array(new Spell());
   this.vehicles = [], //new Array(new Vehicle());
-  this.notes = [new Note()] //new Array(new Note());
+  this.notes = [] //new Array(new Note());
 }
 
 function Settings(){

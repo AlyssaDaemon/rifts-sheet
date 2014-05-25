@@ -362,6 +362,37 @@ div.MDCByLocationObject:nth-child(even) {
   width: auto;
 }
 
+.italic {
+  font-style: italic;
+}
+
+.center {
+  text-align: center;
+}
+
+b.center {
+  width: 100%;
+}
+
+.vehicleWeaponsSystems h3 {
+  text-align: center;
+}
+
+#backpackBox {
+  width: 100%;
+}
+
+#backpack, #ammo {
+  positon: relative;
+  display: inline-block;
+  width: 49%;
+}
+
+#ammo {
+  float: right;
+}
+
+
 #version {
   font-size: x-small;
   float: right;

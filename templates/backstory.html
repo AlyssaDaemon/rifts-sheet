@@ -1,0 +1,51 @@
+<div id="bioScreen">
+  <div id="characterInformation">
+    <h3>Character Information</h3>
+    Appearance:<textarea ng-model="c.appearance"></textarea>
+    Disposition:<textarea ng-model="c.disposition"></textarea>
+    Distinguising Marks/Tattoos:<textarea ng-model="c.marks"></textarea>
+    Father:<input type="text" ng-model="c.family.father"/>
+    Mother:<input type="text" ng-model="c.family.mother"/>
+    <div>
+      Siblings:
+      <div ng-repeat="sib in c.family.siblings" class="siblingObject Object">
+        <input type="text" ng-model="sib.relationship"/>
+        <input type="text" ng-model="sib.name"/>
+        <button type="button" ng-click="delSibling($index)" class="btn btn-danger btn-xs">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <input type="button" ng-click="addSibling()" value="[Add Sibling]"/>
+    </div>
+    Sentiments Toward the Coalition States:<textarea ng-model="c.sentiments.cs"></textarea>
+    Sentiments Toward D-Bees:<textarea ng-model="c.sentiments.dbees"></textarea>
+    Sentiments Toward Magic Users:<textarea ng-model="c.sentiments.magic"></textarea>
+    Sentiments Toward M&M's (Borg's, Juicers, Crazies, etc.):<textarea ng-model="c.sentiments.mms"></textarea>
+    <div id="characterHistory">
+      <h3>Campaign History</h3>
+      <table>
+        <thead>
+          <tr>
+            <td class="campaignName">Campaign Name</td>
+            <td class="campaignDate">Date</td>
+            <td class="campaignGM">Gamemaster</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="Object historyObject" ng-repeat="his in c.history">
+            <td class="campaignName"><input type="text" ng-model="his.name"/></td>
+            <td class="campaignDate"><input type="date" ng-model="his.date"/></td>
+            <td class="campaignGM"><input type="text" ng-model="his.gm"/></td>
+            <td>
+              <button type="button" ng-click="delHistory($index)" class="btn btn-danger btn-xs">
+                <i class="fa fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input class="addButton" type="button" ng-click="addHistory()" value="[Add History]"/>
+    </div>
+  </div>
+</div>
