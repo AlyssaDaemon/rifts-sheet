@@ -4,8 +4,8 @@
     Appearance:<textarea ng-model="c.appearance"></textarea>
     Disposition:<textarea ng-model="c.disposition"></textarea>
     Distinguising Marks/Tattoos:<textarea ng-model="c.marks"></textarea>
-    Father:<input type="text" ng-model="c.family.father"/>
-    Mother:<input type="text" ng-model="c.family.mother"/>
+    <span>Father:<input type="text" ng-model="c.family.father"/></span>
+    <span>Mother:<input type="text" ng-model="c.family.mother"/></span>
     <div>
       Siblings:
       <div ng-repeat="sib in c.family.siblings" class="siblingObject Object">

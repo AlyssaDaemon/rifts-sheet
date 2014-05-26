@@ -13,8 +13,8 @@
   </div>
   <div ng-if="selected_note" id="selectedNote">
     <div>
-      Title: <input ng-model="selected_note.title" type="text" />
-      Date:  <input ng-model="selected_note.date" type="date" />
+      <span>Title: <input ng-model="selected_note.title" type="text" /></span>
+      <span>Date:  <input ng-model="selected_note.date" type="date" /></span>
     </div>
     <textarea ng-model="selected_note.note.text"></textarea>
   </div>

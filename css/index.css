@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+#mobileSelect {
+  display: none;
+}
+
 a:link {
   color: inherit;
   text-decoration: none;
@@ -677,14 +681,117 @@ and (max-device-width : 568px) {
   }
 }
 
-/* iPhone 1-4 */
+/* iPhone 1-4 and Common Smart Phones*/
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+and (max-device-width : 480px){
+  #viewport {
+    margin-top: .1em;
+  }
+  .characterObject > div {
+    width: 90%;
+  }
+  .characterMagic {
+    display: block;
+  }
+  #combatScreenH2H, #combatScreenBodyArmor, #charSaves, #charAbilites  {
+    display: block;
+    width: 100%;
+  }
+  #combatScreenBodyArmor textarea {
+    width: 100%;
+  }
+  .implantEffect {
+    width: 70%;
+  }
   #noteSelectScreen {
     -webkit-overflow-scrolling: touch;
   }
+  .MDCName {
+    width: 50%;
+  }
+  nav ul {
+    display: none;
+  }
   nav {
-    font-size: larger;
+    position: relative;
+    width: 100%;
+  }
+  #version {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  #mobileSelect {
+    display: inline-block;
+  }
+  .skillObject .skillName {
+    width: 45%;
+  }
+  .campaignDate input {
+    width: 7em;
+  }
+  #characterInformation span {
+    display: block;
+  }
+  .siblingObject input[type="text"] {
+    width: 40%;
+  }
+  .vehicleMDC, .vehicleSpeed, .vehicleH2H {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  #backpackBox b {
+    font-size: smaller;
+  }
+  #selectedNote span {
+    display: block;
+  }
+  .noteObject input[type="date"] {
+    width: 8em;
+  }
+}
+
+
+
+@media only screen
+and (min-width: 480px)
+and (max-width: 800px)
+and (orientation: landscape) {
+  nav {
+    position: relative;
+  }
+  #viewport {
+    margin-top: 0;
+  }
+  #combatScreenBodyArmor, #combatScreenH2H, #charSaves, #charAbilites {
+    display: block;
+    width: 100%;
+  }
+  #combatScreenBodyArmor textarea {
+    width: 98%;
+  }
+  #version {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  nav ul li {
+    margin-right: .1em;
+  }
+  body {
+    background-color: white;
+  }
+  .implantEffect {
+    width: 78%;
+  }
+  .campaignDate {
+    width: 10%;
+  }
+  .vehicleMDC, .vehicleSpeed, .vehicleH2H {
+    display: block;
+    float: none;
+    width: 100%;
   }
 }

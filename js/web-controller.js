@@ -63,6 +63,7 @@ function initControllerComponents(){
     alert("Doesn't support localStorage, save and load will not work.");
   }
   rifts.characterList = getCharacterList();
+  document.querySelector('select').addEventListener('onchange', ng_redirect_mobile);
 }
 
 function saveCharacterList(){
@@ -86,4 +87,14 @@ function getCharacterList(){
     }
   }
   return data
+}
+
+function ng_redirect_mobile() {
+  var ele = document.querySelector('select');
+  if (ele.value==="reload") {
+    window.reload();
+    return;
+  } else {
+    ng_redirect(ele.value)
+  }
 }

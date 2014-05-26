@@ -62,6 +62,21 @@
           <li><a href="#/notes">Notes</a></li>
           <li onclick="location.reload(true);" id="reloadNav">Reload</li>
         </ul>
+        <div id="mobileSelect">
+          <a href="#/"><img src="img/rifts-white.png" alt="Rifts Character Sheet"/></a>
+          <select onchange="ng_redirect_mobile();">
+            <option value="" selected="selected">Select</option>
+            <option value="/">Character Select</option>
+            <option value="save">Save</option>
+            <option value="character">Stats</option>
+            <option value="combat">Combat</option>
+            <option value="bio">Bio</option>
+            <option value="vehicle">Vehicle</option>
+            <option value="magic">Magic</option>
+            <option value="notes">Notes</option>
+            <option value="reload">Reload</option>
+          </select>
+        </div>
         <span id="version">V. 0.0.1</span>
       </nav>
     <div id="viewport" ng-view>
