@@ -75,6 +75,15 @@ function getCharacterList(){
     data = [new Character()];
   } else {
     data = JSON.parse(data);
+    for(v in data){
+      for(p in data.notes){
+        data[v].notes[p].date = new Date(data[v].notes[p].date);
+      }
+      for(h in data.history){
+        data[v].history[h].date = new Date(data[v].notes[p].date);
+      }
+      data[v].metadata.last_modified = new Date(data[v].metadata.last_modified);
+    }
   }
   return data
 }

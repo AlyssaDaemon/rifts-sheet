@@ -153,6 +153,7 @@ Riftsapp.controller('characterSelectScreen', function($scope){
   }
   $scope.loadChar = function(newIndex){
     rifts.index = newIndex;
+    rifts.characterList[newIndex].metadata.last_modified = new Date(Date.now());
     ng_redirect("character");
   }
 });
