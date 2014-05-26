@@ -277,19 +277,4 @@ initControllerComponents();
 window.onload = function() {
   initControllerComponents();
   rifts.index = 0;
-  window.addEventListener("online", function(){
-    window.applicationCache.update();
-  })
-  if (window.navigator.onLine){
-    window.applicationCache.update();
-    }
-  }
-  window.applicationCache.addEventListener('updateready', function() {
-    if (confirm('An update is available. Save & Reload now?')) {
-      saveCharacterFile(function(){
-        window.applicationCache.swapCache();
-        window.location.reload();
-      });
-    }
-  });
 }

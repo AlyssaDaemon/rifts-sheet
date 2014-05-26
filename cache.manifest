@@ -7,6 +7,7 @@ js/angular.min.js
 js/angular-route.min.js
 js/common-objects.js
 js/web-controller.js
+js/cache.js
 js/app.js
 css/index.css
 css/font-awesome.css
