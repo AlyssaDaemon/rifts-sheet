@@ -1,59 +1,193 @@
 <div id="charactersheet">
   <div class="geninfo">
     <div id="charBasicInfo">
-      Age:<input type="number" ng-model="c.age" />
-      Player Name:<input type="text" ng-model="c.player_name"/>
-      Name:<input type="text" ng-model="c.name" />
-      Gender:<input type="text" ng-model="c.gender" />
+      <span>Name:<input type="text" ng-model="c.name" /></span><br />
+      <span>Age:<input type="number" ng-model="c.age" /></span>
+      <span>Gender:<input id="charGender" type="text" ng-model="c.gender" /></span><br />
+      <table>
+        <tr>
+          <td>
+            <b>M.D.C.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.mdc.cur" />/
+            <input type="number" ng-model="c.mdc.max" />
+          </td>
+        </tr>
+        <tr>
+          <td>      
+            <b>S.D.C.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.sdc.cur" />/
+            <input type="number" ng-model="c.sdc.max" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>H.P.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.hp.cur"/>/
+            <input type="number" ng-model="c.hp.max" />
+          </td>
+        </tr>
+      </table>
+      <span><b>Horror/Awe Factor:</b><input type="number" ng-model="c.awe" /></span><br />
+      <span><b>Level:</b><input type="number" ng-model="c.level" /></span>
+      <span><b>Experience:</b><input type="number" ng-model="c.exp" /></span><br />
+      <table>
+        <tr>
+          <td>
+            <b>O.C.C./P.C.C.:</b>
+          </td>
+          <td>
+            <input type="text" ng-model="c.occ"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Race/R.C.C.:</b>
+          </td>
+          <td>
+            <input type="text" ng-model="c.rcc"/>
+          </td>
+        </tr>
+      </table>
+      <span><b>Height:</b><input type="number" ng-model="c.height"/><b>cm</b></span>
+      <span><b>Weight:</b><input type="number" ng-model="c.weight"/><b>kg</b></span>
     </div>
     <div id="charStats">
-      <b>Alignment:</b><input type="text" ng-model="c.alignment" /><br />
-      <b>M.D.C.:</b><input type="number" ng-model="c.mdc.cur" />/
-      <input type="number" ng-model="c.mdc.max" />
-      <b>S.D.C.:</b><input type="number" ng-model="c.sdc.cur" />/
-      <input type="number" ng-model="c.sdc.max" /><br />
-      <b>Horror/Awe Factor:</b><input type="number" ng-model="c.awe" />
-      <b>H.P.:</b><input type="number" ng-model="c.hp.cur"/>/
-      <input type="number" ng-model="c.hp.max" /><br />
-      <b>Level:</b><input type="number" ng-model="c.level" />
-      <b>Experience Points:</b><input type="number" ng-model="c.exp" /><br />
-      <b>O.C.C./P.C.C.:</b><input type="text" ng-model="c.occ"/><br />
-      <b>Race/R.C.C.:</b><input type="text" ng-model="c.rcc"/><br />
-      <b>I.Q.:</b><input type="number" ng-model="c.iq.value"/>
-      Skill Bonus: +<input type="number" ng-model="c.iq.bonus"/>%<br />
-      <b>M.E.:</b><input type="number" ng-model="c.me.value"/>
-      Save vs. Psionics/Insanity: +<input type="number" ng-model="c.me.bonus" /><br />
-      <b>M.A.:</b><input type="number" ng-model="c.ma.value"/>
-      Trust/Intimidate: +<input type="number" ng-model="c.ma.bonus" />%<br />
-      <b>P.S.:</b><input type="number" ng-model="c.ps.value"/>
-      Hand to Hand Damage Bounus: +<input type="number" ng-model="c.ps.bonus"/><br />
-      <b>P.P:</b><input type="number" ng-model="c.pp.value"/>
-      Strike/Parry/Dodge Bonus: +<input type="number" ng-model="c.pp.bonus"><br />
-      <b>P.E.:</b><input type="number" ng-model="c.pe.value"/>
-      Save vs. Coma:+<input type="number" ng-model="c.pe.bonus.coma"/>%
-      Poison/Magic/Pain: +<input type="number" ng-model="c.pe.bonus.pain"/><br />
-      <b>P.B.:</b><input type="number" ng-model="c.pb.value"/>
-      Charm/Impress: +<input type="number" ng-model="c.pb.bonus"/>%<br />
-      <b>SPD (run):</b><input type="number" ng-model="c.spd.run"/>(ft/sec)
-      <b>SPD (dig):</b><input type="number" ng-model="c.spd.dig"/>(ft/sec)<br />
-      <b>SPD (fly):</b><input type="number" ng-model="c.spd.fly"/>(ft/sec)
-      <b>SPD (swim):</b><input type="number" ng-model="c.spd.swim"/>(ft/sec)<br />
+      <b>Alignment:</b><input type="text" ng-model="c.alignment" />
+      <table>
+        <tr>
+          <td>
+            <b>I.Q.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.iq.value"/>
+          </td>
+          <td>
+            Skill Bonus: +<input type="number" ng-model="c.iq.bonus"/>%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>M.E.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.me.value"/>
+          </td>
+          <td>
+            Save vs. Psionics/Insanity: +<input type="number" ng-model="c.me.bonus" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>M.A.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.ma.value"/>
+          </td>
+          <td>
+            Trust/Intimidate: +<input type="number" ng-model="c.ma.bonus" />%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>P.S.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.ps.value"/>
+          </td>
+          <td>
+            Hand to Hand Damage Bounus: +<input type="number" ng-model="c.ps.bonus"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>P.P:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.pp.value"/>
+          </td>
+          <td>
+            Strike/Parry/Dodge Bonus: +<input type="number" ng-model="c.pp.bonus">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>P.E.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.pe.value"/>
+          </td>
+          <td>
+            Save vs. Coma:+<input type="number" ng-model="c.pe.bonus.coma"/>%<br />
+            Poison/Magic/Pain: +<input type="number" ng-model="c.pe.bonus.pain"/>
+          <td>
+        </tr>
+        <tr>
+          <td>
+            <b>P.B.:</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.pb.value"/>
+          </td>
+          <td>
+            Charm/Impress: +<input type="number" ng-model="c.pb.bonus"/>%
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>
+            <b>SPD (run):</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.spd.run"/>(ft/sec)
+          </td>
+          <td>
+            <b>SPD (dig):</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.spd.dig"/>(ft/sec)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>SPD (fly):</b>
+          </td>
+          <td>
+          <input type="number" ng-model="c.spd.fly"/>(ft/sec)
+          </td>
+          <td>
+            <b>SPD (swim):</b>
+          </td>
+          <td>
+            <input type="number" ng-model="c.spd.swim"/>(ft/sec)
+          </td>
+        </tr>
+      </table>
       <b>P.P.E.:</b><input type="number" ng-model="c.ppe.cur"/>/
       <input type="number" ng-model="c.ppe.max"/>
       <b>I.S.P.:</b><input type="number" ng-model="c.isp.cur"/>/
       <input type="number" ng-model="c.isp.max"/>
       <b>Chi:</b><input type="number" ng-model="c.chi.cur"/>/
       <input type="number" ng-model="c.chi.max"/><br />
-      <b>Height</b><input type="number" ng-model="c.height"/>cm
-      <b>Weight</b><input type="number" ng-model="c.weight"/>kg
     </div>
   </div>
   <div id="skillSheet">
     <div id="occSkills">
       <h2>O.C.C. Skills</h2>
-      <div class="skillObject" ng-repeat="skill in c.occ">
-        <input class="skillName" type="text" ng-model="skill.name">+
-        <input type="number" ng-model="skill.rate"/>%/Lvl
+      <div class="skillObject">
+        <input class="skillName" type="text" placeholder="Native Language" ng-model="c.native_language.name"/>
+      +<input type="number" ng-model="c.native_language.rate"/>
+      %/Lvl<input type="number" ng-model="c.native_language.lvl"/>
+      </div>
+      <div class="skillObject" ng-repeat="skill in c.skills.occ">
+        <input class="skillName" type="text" ng-model="skill.name"/>
+        +<input type="number" ng-model="skill.rate"/>%/Lvl
         <input type="number" ng-model="skill.lvl"/>%
         <button type="button" ng-click="delOCCSkill($index)" class="btn btn-danger btn-xs">
           <i class="fa fa-times"></i>
@@ -63,9 +197,9 @@
     </div>
     <div id="occRelatedSkills">
       <h2>O.C.C. Related Skills</h2>
-      <div class="skillObject" ng-repeat="skill in c.related">
-        <input class="skillName"  type="text" ng-model="skill.name">+
-        <input type="number" ng-model="skill.rate"/>%/Lvl
+      <div class="skillObject" ng-repeat="skill in c.skills.related">
+        <input class="skillName" type="text" ng-model="skill.name"/>
+        +<input type="number" ng-model="skill.rate"/>%/Lvl
         <input type="number" ng-model="skill.lvl"/>%
         <button type="button" ng-click="delRelatedSkill($index)" class="btn btn-danger btn-xs">
           <i class="fa fa-times"></i>
@@ -75,9 +209,9 @@
     </div>
     <div id="secondarySkills">
       <h2>Secondary Skills</h2>
-      <div class="skillObject" ng-repeat="skill in c.secondary">
-        <input class="skillName" type="text" ng-model="skill.name">+
-        <input type="number" ng-model="skill.rate"/>%/Lvl
+      <div class="skillObject" ng-repeat="skill in c.skills.secondary">
+        <input class="skillName" type="text" ng-model="skill.name"/>
+        +<input type="number" ng-model="skill.rate"/>%/Lvl
         <input type="number" ng-model="skill.lvl"/>%
         <button type="button" ng-click="delSecondarySkill($index)" class="btn btn-danger btn-xs">
           <i class="fa fa-times"></i>

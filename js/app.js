@@ -11,11 +11,11 @@ Riftsapp.config(['$routeProvider',
         templateUrl: 'templates/refresh.html',
         controller: 'saveController'
       }).
-      when('/saveAs', {
+      when('/saveAs', { //Only Implemented in Google Packaged App
         templateUrl: 'templates/refresh.html',
         controller: 'saveAsControler'
       }).
-      when('/open', {
+      when('/open', { //Only Implemented in Google Packaged App
         templateUrl: 'templates/refresh.html',
         controller: 'openController'
       }).
@@ -105,10 +105,16 @@ Riftsapp.controller('vehicleScreen', function($scope){
     $scope.c.vehicles[vindex].atks.splice(index, 1);
   }
   $scope.addWepSys = function(index) {
-    $scope.c.vehicles[index].atks.push(new WeaponSystem());
+    $scope.c.vehicles[index].weapons.push(new WeaponSystem());
   }
   $scope.delWepSys = function(vindex, index) {
     $scope.c.vehicles[vindex].weapons.splice(index, 1);
+  }
+  $scope.addRPASkill = function(index) {
+    $scope.c.vehicles[index].rpa.push(new RPASkill());
+  }
+  $scope.delRPASkill = function(vindex, index){
+    $scope.c.vehicles[vindex].rpa.splice(index, 1);
   }
   $scope.delAmmo = function(index) {
     $scope.c.inventory.ammo.splice(index, 1);
@@ -155,22 +161,22 @@ Riftsapp.controller('characterScreen', function($scope){
   $scope.c = rifts.characterList[rifts.index];
 
   $scope.addOCCSkill = function(){
-    $scope.c.occ.push(new Skill());
+    $scope.c.skills.occ.push(new Skill());
   }
   $scope.delOCCSkill = function(index){
-    $scope.c.occ.splice(index, 1);
+    $scope.c.skills.occ.splice(index, 1);
   }
   $scope.addRelatedSkill = function(){
-    $scope.c.related.push(new Skill());
+    $scope.c.skills.related.push(new Skill());
   }
   $scope.delRelatedSkill = function(index){
-    $scope.c.related.splice(index, 1);
+    $scope.c.skills.related.splice(index, 1);
   }
   $scope.addSecondarySkill = function(){
-    $scope.c.secondary.push(new Skill());
+    $scope.c.skills.secondary.push(new Skill());
   }
   $scope.delSecondarySkill = function(index){
-    $scope.c.secondary.splice(index, 1);
+    $scope.c.skills.secondary.splice(index, 1);
   }
 });
 
@@ -224,12 +230,13 @@ Riftsapp.controller('combatScreen', function($scope){
   $scope.delMDCByLocation = function(index){
     $scope.c.bodyArmor.mdc.splice(index, 1);
   }
-  $scope.addSibling = function() {
-    $scope.c.family.siblings.push(new Sibling());
+
+  $scope.addImplant = function(){
+    $scope.c.abilities.push(new Ability());
   }
 
-  $scope.delSibling = function(index) {
-    $scope.c.family.siblings.splice(index, 1);
+  $scope.delImplant = function(index) {
+    $scope.c.abilities.splice(index, 1);
   }
 });
 

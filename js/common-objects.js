@@ -41,7 +41,7 @@ function Sibling(){
 
 function History(){
   this.name = null;
-  this.date = null;
+  this.date = new Date();
   this.gm = null;
 }
 
@@ -238,7 +238,8 @@ function Character(){
   this.spd = {
     run: 0,
     dig: 0,
-    swim: 0
+    swim: 0,
+    fly: 0
   };
   this.ppe = {
     cur: 0,
@@ -368,10 +369,10 @@ function Character(){
     personal: [new InventoryItem()], //new Array(new InventoryItem()),
     cargo: [new InventoryItem()], //new Array(new InventoryItem())
   }
-  this.savings = 0;
-  this.spells = [], //new Array(new Spell());
-  this.vehicles = [], //new Array(new Vehicle());
-  this.notes = [] //new Array(new Note());
+  this.savings = null;
+  this.spells = []; //new Array(new Spell());
+  this.vehicles = []; //new Array(new Vehicle());
+  this.notes = [new Note()]; //new Array(new Note());
 }
 
 function Settings(){

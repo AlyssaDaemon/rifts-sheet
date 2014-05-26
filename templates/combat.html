@@ -1,60 +1,153 @@
 <div id="combatScreen">
   <div id="combatScreenH2H">
-    <h3>Hand to Hand</h3>
-    <b>H2H Skill</b><input type="text" ng-model="c.h2hskill.level" />
+    <h2>Hand to Hand</h2>
+    <b>H2H Skill</b><input type="text" ng-model="c.h2hskill.level" /><br />
     <b>Attacks Per Melee:</b><input type="number" ng-model="c.h2hskill.atksPerMelee.cur" />/
-    <input type="number" ng-model="c.h2hskill.atksPerMelee.max"/>
+    <input type="number" ng-model="c.h2hskill.atksPerMelee.max"/><br />
     <b>K.O. on:</b><input type="number" ng-model="c.h2hskill.ko_on"/>
-    <b>Critical on:</b><input type="number" ng-model="c.h2hskill.crit_on"/>
+    <b>Critical on:</b><input type="number" ng-model="c.h2hskill.crit_on"/><br />
     <b>Deathblow on:</b><input type="number" ng-model="c.h2hskill.deathblow_on"/>
-    <b>Pin on:</b><input type="number" ng-model="c.h2hskill.pin_on"/>
+    <b>Pin on:</b><input type="number" ng-model="c.h2hskill.pin_on"/><br />
     <div id="combatScreenBonuses">
       <h4>Bonuses</h4>
-      <b>Damage:</b>+<input type="number" ng-model="c.h2hskill.bonus.damage"/>
-      <b>Strike:</b>+<input type="number" ng-model="c.h2hskill.bonus.strike"/>
-      <b>Parry:</b>+<input type="number" ng-model="c.h2hskill.bonus.parry"/>
-      <b>Dodge:</b>+<input type="number" ng-model="c.h2hskill.bonus.dodge"/>
-      <b>Pull Punch:</b>+<input type="number" ng-model="c.h2hskill.bonus.pull_punch"/>
-      <b>Initiative:</b>+<input type="number" ng-model="c.h2hskill.bonus.initiative"/>
-      <b>Entangle:</b>+<input type="number" ng-model="c.h2hskill.bonus.entangle"/>
-      <b>Disarm:</b>+<input type="number" ng-model="c.h2hskill.bonus.disarm"/>
+      <table>
+        <tr>
+          <td>
+            <b>Damage:</b>+<input type="number" ng-model="c.h2hskill.bonus.damage"/>
+          </td>
+          <td>
+            <b>Strike:</b>+<input type="number" ng-model="c.h2hskill.bonus.strike"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Parry:</b>+<input type="number" ng-model="c.h2hskill.bonus.parry"/>
+          </td>
+          <td>
+            <b>Dodge:</b>+<input type="number" ng-model="c.h2hskill.bonus.dodge"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Pull Punch:</b>+<input type="number" ng-model="c.h2hskill.bonus.pull_punch"/>
+          </td>
+          <td>
+            <b>Initiative:</b>+<input type="number" ng-model="c.h2hskill.bonus.initiative"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Entangle:</b>+<input type="number" ng-model="c.h2hskill.bonus.entangle"/>
+          </td>
+          <td>
+            <b>Disarm:</b>+<input type="number" ng-model="c.h2hskill.bonus.disarm"/>
+          </td>
+        </tr>
+      </table>
       <b>Roll with Punch/Fall:</b>+<input type="number" ng-model="c.h2hskill.bonus.fall"/>
     </div>
     <div id="combatScreenH2Hatks">
-      <i>Hand to Hand Attacks</i>
-      Restrained Punch:<input type="text" ng-model="c.h2hskill.atks.restrained"/>
-      Normal Punch:<input type="text" ng-model="c.h2hskill.atks.normal"/>
-      Power Punch:<input type="text" ng-model="c.h2hskill.atks.power"/>
-      Normal Kick:<input type="text" ng-model="c.h2hskill.atks.kick"/>
-      Leap Kick:<input type="text" ng-model="c.h2hskill.atks.leap"/>
-      Tackle:<input type="text" ng-model="c.h2hskill.atks.tackle"/>
-      Flip/Throw:<input type="text" ng-model="c.h2hskill.atks.flip"/>
-      Bite:<input type="text" ng-model="c.h2hskill.atks.bite"/>
-      Stomp:<input type="text" ng-model="c.h2hskill.atks.stomp"/>
-    </div>
-    <div id="combatScreenBodyArmor">
-      <h3>Body Armor</h3>
-      Type:<input type="text" ng-model="c.bodyArmor.type"/>
-      A.R.<i>(if applicable)</i>:<input type="text" ng-model="c.bodyArmor.ar"/><br />
-      M.D.C. By Location:
-      <div id="MDCLocation">
-          <div class="MDCByLocationObject" ng-repeat="mdc in c.bodyArmor.mdc">
-            <input class="MDCName" type="text" ng-model="mdc.name">:
-            <input type="number" ng-model="mdc.value.cur"/>/
-            <input type="number" ng-model="mdc.value.max"/>
-            <button class="btn btn-danger btn-xs" ng-click="delMDCByLocation($index)">
-              <i class="fa fa-times"></i>
-            </button>
-          </div>
-      </div>
-      <input type="button" ng-click="newMDCByLocation()" value="[ Add MDC Location ]"/><br />
-      Prowl:-<input type="number" ng-model="c.bodyArmor.prowl"/>%
-      Climb:-<input type="number" ng-model="c.bodyArmor.climb"/>%
-      Swim:-<input type="number" ng-model="c.bodyArmor.swim"/>%
-      Additional Features:<br /><textarea ng-model="c.bodyArmor.notes"></textarea>
+      <h4 class="italic">Hand to Hand Attacks</h4>
+      <table>
+        <tr>
+          <td>
+            Restrained Punch:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.restrained"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Normal Punch:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.normal"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Power Punch:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.power"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Normal Kick:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.kick"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Leap Kick:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.leap"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tackle:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.tackle"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Flip/Throw:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.flip"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Bite:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.bite"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Stomp:
+          </td>
+          <td>
+            <input type="text" ng-model="c.h2hskill.atks.stomp"/>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
+  <div id="combatScreenBodyArmor">
+    <h2>Body Armor</h2>
+    Type:<input type="text" ng-model="c.bodyArmor.type"/><br />
+    A.R.<i>(if applicable)</i>:<input id="combatArmorAR" type="text" ng-model="c.bodyArmor.ar"/><br />
+    M.D.C. By Location:
+    <div id="MDCLocation">
+      <div class="MDCByLocationObject" ng-repeat="mdc in c.bodyArmor.mdc">
+        <input class="MDCName" type="text" ng-model="mdc.name">:
+        <input type="number" ng-model="mdc.value.cur"/>/
+        <input type="number" ng-model="mdc.value.max"/>
+        <button class="btn btn-danger btn-xs" ng-click="delMDCByLocation($index)">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <input type="button" ng-click="newMDCByLocation()" value="[ Add MDC Location ]"/><br />
+    Prowl:-<input type="number" ng-model="c.bodyArmor.prowl"/>%
+    Climb:-<input type="number" ng-model="c.bodyArmor.climb"/>%
+    Swim:-<input type="number" ng-model="c.bodyArmor.swim"/>%<br />
+    Additional Features:<br />
+    <textarea ng-model="c.bodyArmor.notes"></textarea>
+  </div>
   <div id="combatScreenWeapons">
+    <h2>Weapons</h2>
     <div id="combatScreenAncientWeapons">
       <table>
         <thead>
@@ -71,7 +164,7 @@
           <tr class="ancientWeaponObject" ng-repeat="wep in c.weapons.ancient">
             <td class="ancientWeaponName"><input type="text" ng-model="wep.name"/></td>
             <td class="ancientWeaponDamage"><input type="text" ng-model="wep.damage"/></td>
-            <td class="ancientWeaponWeight"><input type="number" ng-model="wep.weight"/></td>
+            <td class="ancientWeaponWeight"><input type="number" ng-model="wep.weight"/>lbs.</td>
             <td class="ancientWeponBonus">
               (+<input type="number" ng-model="wep.strike"/>/
               +<input type="number" ng-model="wep.parry"/>/
@@ -88,7 +181,7 @@
           </tr>
         </tbody>
       </table>
-      <input type="button" ng-click="addAncientWep()" value="[Add Ancient Weapon]"/>
+      <input class="addButton" type="button" ng-click="addAncientWep()" value="[Add Ancient Weapon]"/>
     </div>
     <div id="combatScreenModernWeapons">
       <table>
@@ -125,7 +218,7 @@
           </tr>
         </tbody>
       </table>
-      <input type="button" ng-click="addModernWep()" value="[Add Modern Weapon]"/>
+      <input class="addButton" type="button" ng-click="addModernWep()" value="[Add Modern Weapon]"/>
     </div>
     <div id="combatScreenExplosives">
       <table>
@@ -156,11 +249,11 @@
           </tr>
         </tbody>
       </table>
-      <input type="button" ng-click="addExplosive()" value="[Add Explosive Ordinance]">
+      <input class="addButton" type="button" ng-click="addExplosive()" value="[Add Explosive Ordinance]">
     </div>
     <div id="combatScreenProfiencies">
+      <h2>Weapon Profiences</h2>
       <div id="combatScreenAncientProf">
-        <h3>Ancient Profiences</h3>
         <table>
           <thead>
             <tr>
@@ -194,10 +287,9 @@
             </tr>
           </tbody>
         </table>
-        <input id="newAncientProf" type="button" ng-click="addAncientProf()" value="[Add Ancient Proficency]"/>
+        <input class="addButton" type="button" ng-click="addAncientProf()" value="[Add Ancient Proficency]"/>
       </div>
       <div id="combatScreenModernProf">
-        <h3>Modern Profiences</h3>
         <table>
           <thead>
             <tr>
@@ -221,8 +313,39 @@
               </td>
             </tr>
         </table>
-        <input id="newModernProf" type="button" ng-click="addModernProf()" value="[Add Modern Proficency]"/>
+        <input class="addButton" type="button" ng-click="addModernProf()" value="[Add Modern Proficency]"/>
       </div>
+    </div>
+  </div>
+  <div id="charSaves">
+    <div id="physicalSaves">
+      <h2>Physical Saves (Add P.E. Bonus):</h2>
+      Save vs. Lethal Toxin:(14)+<input type="number" ng-model="c.saves.toxin.lethal"/><br />
+      Save vs. Non-Lethal Toxin:(16)+<input type="number" ng-model="c.saves.toxin.non_lethal"/><br />
+      Save vs. Harmful Drugs:(15)+<input type="number" ng-model="c.saves.drugs"/><br />
+      Save vs. Disease:(14)+<input type="number" ng-model="c.saves.disease"/><br />
+      Save vs. Electrocution:(18/14)+<input type="number" ng-model="c.saves.electro"/><br />
+      Save vs. Extreme Temp:(16)+<input type="number" ng-model="c.saves.temp"/><br />
+      Save vs. Pain:(16/14)+<input type="number" ng-model="c.saves.pain"/><br />
+      Save vs. Coma/Death:+<input type="number" ng-model="c.saves.coma"/>%<br />
+    </div>
+    <div id="magicalSaves">
+      <h2>Magical Saves (Add P.E. Bonus):</h2>
+      Save vs. Spell Magic:(12)+<input type="number" ng-model="c.saves.spells"/><br />
+      Save vs. Ritual Magic:(16)+<input type="number" ng-model="c.saves.ritual"/><br />
+      Save vs. Ward Magic:(14)+<input type="number" ng-model="c.saves.ward"/><br />
+      Save vs. Circle Magic:(16)+<input type="number" ng-model="c.saves.circle"/><br />
+      Save vs. Faerie Magic:(16)+<input type="number" ng-model="c.saves.faerie"/><br />
+      Save vs. Magic Fumes:(14)+<input type="number" ng-model="c.saves.fumes"/><br />
+      Save vs. Protection Circles:(16)+<input type="number" ng-model="c.saves.prot_cir"/><br />
+      Save vs. Possesion:+<input type="number" ng-model="c.saves.possession"/><br />
+    </div>
+    <div id="mentalSaves">
+      <h2>Mental Saves (Add M.E. Bonus):</h2>
+      Save vs. Insanity:(12)+<input type="number" ng-model="c.saves.insanity"/><br />
+      Save vs. Psionics:(15/12/10)+<input type="number" ng-model="c.saves.psionics"/><br />
+      Save vs. Mind Control:+<input type="number" ng-model="c.saves.mind"/><br />
+      Save vs. Horror Factor:+<input type="number" ng-model="c.saves.horror"/><br />
     </div>
   </div>
   <div id="charAbilites">
@@ -233,36 +356,5 @@
       <button ng-click="delImplant($index)" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
     </div>
     <input class="addButton" type="button" ng-click="addImplant()" value="[ Add Ability/Implant ]" />
-  </div>
-  <div id="charSaves">
-    <div id="physicalSaves">
-      <h3>Physical Saves (Add P.E. Bonus):</h3>
-      Save vs. Lethal Toxin:(14)+<input type="number" ng-model="c.saves.toxin.lethal"/>
-      Save vs. Non-Lethal Toxin:(16)+<input type="number" ng-model="c.saves.toxin.non_lethal"/>
-      Save vs. Harmful Drugs:(15)+<input type="number" ng-model="c.saves.drugs"/>
-      Save vs. Disease:(14)+<input type="number" ng-model="c.saves.disease"/>
-      Save vs. Electrocution:(18/14)+<input type="number" ng-model="c.saves.electro"/>
-      Save vs. Extreme Temp:(16)+<input type="number" ng-model="c.saves.temp"/>
-      Save vs. Pain:(16/14)+<input type="number" ng-model="c.saves.pain"/>
-      Save vs. Coma/Death:+<input type="number" ng-model="c.saves.coma"/>%
-    </div>
-    <div id="magicalSaves">
-      <h3>Magical Saves (Add P.E. Bonus):</h3>
-      Save vs. Spell Magic:(12)+<input type="number" ng-model="c.saves.spell"/>
-      Save vs. Ritual Magic:(16)+<input type="number" ng-model="c.saves.ritual"/>
-      Save vs. Ward Magic:(14)+<input type="number" ng-model="c.saves.ward"/>
-      Save vs. Circle Magic:(16)+<input type="number" ng-model="c.saves.circle"/>
-      Save vs. Faerie Magic:(16)+<input type="number" ng-model="c.saves.faerie"/>
-      Save vs. Magic Fumes:(14)+<input type="number" ng-model="c.saves.fumes"/>
-      Save vs. Protection Circles:(16)+<input type="number" ng-model="c.saves.prot_cir"/>
-      Save vs. Possesion:+<input type="number" ng-model="c.saves.possesion"/>
-    </div>
-    <div id="mentalSaves">
-      <h3>Mental Saves (Add M.E. Bonus):</h3>
-      Save vs. Insanity:(12)+<input type="number" ng-model="c.saves.insanity"/>
-      Save vs. Psionics:(15/12/10)+<input type="number" ng-model="c.saves.psionics"/>
-      Save vs. Mind Control:+<input type="number" ng-model="c.saves.mind"/>
-      Save vs. Horror Factor:+<input type="number" ng-model="c.saves.horror"/>
-    </div>
   </div>
 </div>

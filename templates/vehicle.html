@@ -3,37 +3,105 @@
     <h2>Vehicle Log</h2>
     <div class="vehicleObject" ng-repeat="v in c.vehicles">
       <div class="vehicleGenInfo">
-        <b>Name:</b><input type="text" ng-model="v.name"/>
-        <b>Vehicle:</b><input type="text" ng-model="v.vehicle"/>
-        <b>Class:</b><input type="text" ng-model="v.class"/>
-        <b>Crew:</b><input type="text" ng-model="v.crew"/>
-        <b>Passengers:</b><input type="text" ng-model="v.passengers"/>
-        <b>Height:</b><input type="number" ng-model="v.height"/>m
-        <b>Width:</b><input type="number" ng-model="v.width"/>m
-        <b>Length:</b><input type="number" ng-model="v.length"/>m
-        <b>Weight:</b><input type="number" ng-model="v.weight"/>kg
-        <b>Physical Strength:</b> Equal to <input type="number" ng-model="v.strength"/>
-        <b>Range:</b><input type="text" ng-model="v.range"/>
-        <b>Depth Tolerence:</b><input type="number" ng-model="v.depth_tol"/>ft
-        <b>Cargo Space:</b><input type="text" ng-model="v.cargo"/>
-        <b>Power System:</b><input type="text" ng-model="v.power"/>
-        <b>Price</b><input type="number" ng-model="v.price"/> credits
+        <div class="vehiclePartOne">
+          <table>
+            <tr>
+              <td>
+                <b>Name:</b>
+              </td>
+              <td>
+                <input type="text" ng-model="v.name"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Vehicle:</b>
+              </td>
+              <td>
+                <input type="text" ng-model="v.vehicle"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Class:</b>
+              </td>
+              <td>
+                <input type="text" ng-model="v.class"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <b>Crew:</b>
+              </td>
+              <td>
+                <input type="text" ng-model="v.crew"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Passengers:</b>
+              </td>
+              <td>
+                <input type="text" ng-model="v.passengers"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Cargo Space:</b>
+              </td>
+              <td>
+                <input type="text" ng-model="v.cargo"/>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="vehiclePartTwo">
+          <table>
+            <tr>
+              <td>
+                <b>Height:</b>
+              </td>
+              <td>
+                <input type="number" ng-model="v.height"/>m
+              </td>
+              <td>
+                <b>Width:</b>
+              </td>
+              <td>
+                <input type="number" ng-model="v.width"/>m
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Length:</b>
+              </td>
+              <td>
+                <input type="number" ng-model="v.length"/>m
+              </td>
+              <td>
+                <b>Weight:</b>
+              </td>
+              <td>
+                <input type="number" ng-model="v.weight"/>kg
+              </td>
+            </tr>
+          </table>
+        <b>Physical Strength:</b> Equal to <input type="number" ng-model="v.strength"/><br />
+        <b>Range:</b><input type="text" ng-model="v.range"/><br />
+        <b>Depth Tolerence:</b><input type="number" ng-model="v.depth_tol"/>ft<br />
+        <b>Power System:</b><input type="text" ng-model="v.power"/><br />
+        <b>Price</b><input type="number" ng-model="v.price"/> credits<br />
+        </div>
       </div>
-      <div class="vehicleSpeed">
-        <b>Speed</b>
-        <b>Running/Driving</b><input type="number" ng-model="v.speed.driving"/>kph
-        <b>Flying</b><input type="number" ng-model="v.speed.flying.air"/>kph
-        <b>Flying in space:</b><input type="number" ng-model="v.speed.flying.space"/>kph
-        <b class="italic">Normal Leaping</b>
-        <input type="number" ng-model="v.leap.up"/>m Up,
-        <input type="number" ng-model="v.leap.across"/>m Across
-        <b class="italic">Thurster Assisted Leaping</b>
-        <input type="number" ng-model="v.thrust_leap.up"/>m Up,
-        <input type="number" ng-model="v.thrust_leap.across"/>m Across
+      <div class="vehicleDelButton">
+        <button class="btn btn-danger btn-lg" type="button">
+          <i class="fa fa-times"></i>
+        </button>
       </div>
       <div class="vehicleMDC">
+        <h5 class="center bold">M.D.C By Location</h5>
         <div class="vehicleMDCObject Object" ng-repeat="mdc in v.mdc">
-          <input type="text" ng-model="mdc.name"/>:
+          <input class="vehicleMDCName" type="text" ng-model="mdc.name"/>:
           <input type="number" ng-model="mdc.value.cur"/>/
           <input type="number" ng-model="mdc.value.max">
           <button type="button" class="btn btn-danger btn-xs" ng-click="delVMDC($parent.$index, $index)">
@@ -42,10 +110,48 @@
         </div>
         <input type="button" class="addButton" ng-click="addVMDC($index)" value="[ New MDC ]"/>
       </div>
+      <div class="vehicleSpeed">
+        <h5 class="center bold">Speed</h5>
+        <table>
+          <tr>
+            <td>
+              <b>Running/Driving</b>
+            </td>
+            <td>
+              <input type="number" ng-model="v.speed.driving"/>kph
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Flying</b>
+            </td>
+            <td>
+              <input type="number" ng-model="v.speed.flying.air"/>kph
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Flying in space:</b>
+            </td>
+            <td>
+              <input type="number" ng-model="v.speed.flying.space"/>kph
+            </td>
+          </tr>
+        </table>
+        <div class="vehicleLeap center">
+          <h5 class="italic center">Normal Leaping</h5>
+          <input type="number" ng-model="v.leap.up"/>m Up,<br />
+          <input type="number" ng-model="v.leap.across"/>m Across
+          <h5 class="italic center">Thurster Assisted Leaping</h5>
+          <input type="number" ng-model="v.thrust_leap.up"/>m Up,<br />
+          <input type="number" ng-model="v.thrust_leap.across"/>m Across
+        </div>
+      </div>
       <div class="vehicleH2H">
+        <h4 class="center italic">Hand to Hand Attacks</h4>
         <div class="vehicleH2HObject Object" ng-repeat="h in v.atks">
-          <input type="text" ng-model="h.name"/>: 
-          <input type="text" ng-model="h.value"/>
+          <input class="vehicleH2HName" type="text" ng-model="h.name"/>: 
+          <input class="vehicleH2HValue" type="text" ng-model="h.value"/>
           <button type="button" class="btn btn-danger btn-xs" ng-click="delVH2H($parent.$index, $index)">
             <i class="fa fa-times"></i>
           </button>
@@ -57,30 +163,30 @@
         <table>
           <thead>
             <tr>
-              <td>Weapons</td>
-              <td>Damage</td>
-              <td>Range</td>
-              <td>Radius</td>
-              <td>Payload</td>
-              <td>+Aim/Burst</td>
-              <td>Rate of Fire/Volly</td>
+              <td class="vehicleWepSysNam">Weapons</td>
+              <td class="vehicleWepSysDam">Damage</td>
+              <td class="vehicleWepSysRag">Range</td>
+              <td class="vehicleWepSysRad">Radius</td>
+              <td class="vehicleWepSysPay">Payload</td>
+              <td class="vehicleWepSysBon">+Aim/Burst</td>
+              <td class="vehicleWepSysRat">Rate of Fire/Volly</td>
               <td></td>
             </tr>
           </thead>
           <tbody>
             <tr class="vechileWeaponSystemsObject Object" ng-repeat="w in v.weapons">
-              <td><input type="text" ng-model="w.name"/></td>
-              <td><input type="text" ng-model="w.damage"/></td>
-              <td><input type="number" ng-model="w.range">m</td>
-              <td><input type="number" ng-model="w.radius">m</td>
-              <td>
+              <td class="vehicleWepSysNam"><input type="text" ng-model="w.name"/></td>
+              <td class="vehicleWepSysDam"><input type="text" ng-model="w.damage"/></td>
+              <td class="vehicleWepSysRag"><input type="number" ng-model="w.range">m</td>
+              <td class="vehicleWepSysRad"><input type="number" ng-model="w.radius">m</td>
+              <td class="vehicleWepSysPay">
                 <input type="number" ng-model="w.payload.cur"/>/
                 <input type="number" ng-model="w.payload.max"/>
               </td>
-              <td>
+              <td class="vehicleWepSysBon">
                 (+<input type="number" ng-model="w.aim"/>
                 /+<input type="number" ng-model="w.burst"/>)
-              </td>
+              </td class="vehicleWepSysRat">
               <td><input type="text" ng-model="w.rate"/></td>
               <td>
                 <button type="button" class="btn btn-danger btn-xs" ng-click="delWepSys($parent.$index, $index)">
@@ -91,6 +197,63 @@
           </tbody>
         </table>
         <input type="button" class="addButton" ng-click="addWepSys($index)" value="[ New Weapon System ]"/>
+      </div>
+      <div class="vehicleRPA">
+        <h3 class="center italic">RPA Combat Skills</h3>
+        <div class="RPAObject Object" ng-repeat="r in v.rpa">
+          <b>RPA Skill:</b><input type="text" ng-model="r.name"/>
+          <button class="btn btn-danger btn-xs RPASkillDelButton" ng-click="delRPASkill($parent.$index,$index)">
+            <i class="fa fa-times"></i>
+          </button><br />
+          <b>Attacks Per Melee:</b>
+          <input type="number" ng-model="r.atks.cur"/>/
+          <input type="number" ng-model="r.atks.max"/><br />
+          <table>
+            <tr>
+              <td>
+                <b>Strike: +</b>
+              </td>
+              <td>
+                <input type="number" ng-model="r.strike"/>
+              </td>
+              <td>
+                <b>Parry: +</b>
+              </td>
+              <td>
+                <input type="number" ng-model="r.parry"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Dodge(Flying): +</b>
+              </td>
+              <td>
+                <input type="number" ng-model="r.dodge.flying"/>
+              </td>
+              <td>
+                <b>Dodge: +</b>
+              </td>
+              <td>
+                <input type="number" ng-model="r.dodge.normal"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Initiative: +</b>
+              </td>
+              <td>
+                <input type="number" ng-model="r.initiative"/>
+              </td>
+              <td>
+                <b>Roll with Punch/Fall: +</b>
+              </td>
+              <td>
+                <input type="number" ng-model="r.fall"/>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <input class="addButton" type="button" ng-click="addRPASkill($index)" value="[ Add RPA Skill ]"/>
       </div>
     </div>
     <input type="button" class="addButton" ng-click="newVehicle()" value="[ New Vehicle ]"/>
@@ -145,5 +308,9 @@
       </div>
       <input class="addButton" type="button" ng-click="addCargo()" value="[Add Item]" />
     </div>
+  </div>
+  <div class="savings">
+    <h2>Savings</h2>
+    <textarea class="savings" ng-model="c.savings"></textarea>
   </div>
 </div>

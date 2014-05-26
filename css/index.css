@@ -76,7 +76,7 @@ body {
 
 #viewport {
   z-index: -1;
-  margin-top: 1.6em;
+  margin-top: 1.7em;
 }
 
 nav {
@@ -180,7 +180,6 @@ nav ul ul li {
   height: 100%;
   margin-top: 1em;
   border-radius: 10px;
-  background-color: #eeeeee;
 }
 
 #selectedNote {
@@ -302,8 +301,28 @@ input, textarea {
   position: relative;
 }
 
-#charBasicInfo {
-  display: inline;
+#characterInformation textarea {
+  width: 99%;
+  height: 6em;
+  resize: height;
+}
+#characterHistory table {
+  width: 100%;
+}
+
+.campaignName {
+  width: 66%;
+}
+
+table input {
+  width: 100%;
+}
+
+.campaignDate {
+  width: 10%;
+}
+.campaignGM {
+  width: 20%;
 }
 
 input.addButton {
@@ -327,12 +346,6 @@ h2 {
   text-align: center;
 }
 
-#charStats {
-  position: relative;
-  width: 50%;
-  left: 50%;
-}
-
 .implantEffect {
   position: relative;
   width: 80%;
@@ -354,7 +367,7 @@ div.MDCByLocationObject:nth-child(even) {
 
 #MDCLocation {
   position: relative;
-  width: 60%;
+  width: 100%;
   padding: auto .1em;
 }
 
@@ -370,10 +383,6 @@ div.MDCByLocationObject:nth-child(even) {
   text-align: center;
 }
 
-b.center {
-  width: 100%;
-}
-
 .vehicleWeaponsSystems h3 {
   text-align: center;
 }
@@ -386,10 +395,21 @@ b.center {
   positon: relative;
   display: inline-block;
   width: 49%;
+  vertical-align: top;
 }
 
 #ammo {
-  float: right;
+  right: 0;
+}
+
+#charBasicInfo, #charBasicInfo span, #charStats {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#charGender {
+  width: 7em;
 }
 
 
@@ -399,10 +419,155 @@ b.center {
   vertical-align: bottom;
 }
 
+input[type="text"], input[type="number"], textarea, input[type="date"]  {
+  color: #657b83;
+  background-color: #eee8d5;
+}
+
+#charSaves {
+  display: inline-block;
+  width: 30%;
+}
+
+#physicalSaves h2, #magicalSaves h2, #mentalSaves h2 {
+  font-size: medium;
+  font-weight:bold;
+}
+
+#combatScreenBodyArmor, #combatScreenH2H {
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#combatArmorAR {
+  width: 5em;
+}
+
+.ancientProfStrike input[type="text"], .ancientProfParry input[type="text"], .ancientProfThrow input[type="text"] {
+  width: 50%;
+}
+
+.ancientWeaponName, .ancientWeaponDamage, .ancientWeaponBonus, .ancientWeaponProficency {
+  width: 21%;
+}
+
+.ancientWeaponWeight {
+  width: 7%;
+}
+
+.modernWeaponName, .modernWeaponDamage, .modernWeaponRate{
+  width: 25%;
+}
+
+.modernWeaponPayload {
+  width: 8%;
+}
+
+.modernWeaponBonus {
+  width: 10%;
+}
+
+.modernWeaponRange {
+  width: 5%;
+}
+
+#combatScreenWeapons table {
+  width: 100%;
+}
+
+#combatScreenWeapons thead {
+  background-color: black;
+  width: 100%;
+}
+
+
+#charAbilites {
+  display: inline-block;
+  width: 69%;
+  vertical-align: top;
+}
+
+.vehiclePartOne, .vehiclePartTwo, .vehicleDelButton, .vehicleSpeed, .vehicleMDC, .vehicleH2H  {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.vehicleDelButton, .RPASkillDelButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+textarea.savings {
+  width: 99%;
+  height: 10em;
+}
+
+.vehicleMDC {
+  width: 35%;
+}
+
+#vehicleScreen {
+  position: relative;
+}
+
+.vehicleObject {
+  position: relative;
+}
+
+.vehicleMDCName {
+  width: 45%;
+}
+
+.vehicleSpeed {
+  width: 27%;
+}
+
+.vehicleH2H {
+  width: 35%;
+}
+
+.vehicleH2HName, .vehicleH2HValue {
+  width: 43%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.vehicleWeaponsSystems table {
+  width: 100%;
+}
+
+.vehicleWepSysNam, .vehicleWepSysDam {
+  width: 12%;
+}
+
 /* iPad */
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) {
+  .ancientWeaponWeight {
+    width: 8%;
+  }
+  .modernWeaponName, .modernWeaponDamage, .modernWeaponRate {
+    width: 25%;
+  }
+  .modernWeaponRange {
+    width: 7%;
+  }
+  .modernWeaponPayload {
+    width: 11%;
+  }
+  .modernWeaponBonus {
+    width: 14%;
+  }
+  #charactersheet {
+    padding-top: .5em;
+  }
   #noteSelectScreen {
     -webkit-overflow-scrolling: touch;
   }
@@ -432,6 +597,39 @@ and (max-device-width : 1024px) {
 	background-image: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(239,239,239,1) 60%,rgba(225,223,226,1) 100%);
   }
   @media (orientation: portrait) {
+    .vehicleH2H {
+      float:right;
+    }
+    .ancientWeaponWeight {
+      width: 10%;
+    }
+    .ancientWeaponBonus {
+      width: 27%;
+    }
+    .ancientWeaponProficiency {
+      width: 20%;
+    }
+    .modernWeaponRange {
+      width: 9%;
+    }
+    .modernWeaponPayload {
+      width: 15%;
+    }
+    .modernWeaponBonus {
+      width: 19%;
+    }
+    .modernWeaponDamage {
+      width: 15%;
+    }
+    #charSaves {
+      width: 37%;
+    }
+    #charAbilites {
+      width: 61%;
+    }
+    .implantEffect {
+      width: 78%
+    }
     nav > ul > li {
       margin-right: .3em;
     }
