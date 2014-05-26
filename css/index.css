@@ -605,7 +605,7 @@ and (max-device-width : 1024px) {
     width: 100%;
   }
   .characterObject:first-child {
-    border-radius: 0px;
+    border-top-left-radius: 0px;
   }
   @media (orientation: portrait) {
     #characterSelect {
