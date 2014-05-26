@@ -780,9 +780,6 @@ and (orientation: landscape) {
   nav ul li {
     margin-right: .1em;
   }
-  body {
-    background-color: white;
-  }
   .implantEffect {
     width: 78%;
   }
