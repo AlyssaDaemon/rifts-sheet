@@ -605,9 +605,14 @@ and (max-device-width : 1024px) {
     width: 100%;
   }
   .characterObject:first-child {
-    border-top-left-radius: none;
+    border-top-left-radius: 0px;
+    border: 0px;
   }
   @media (orientation: portrait) {
+    .characterObject:first-child {
+      border-top-left-radius: 0px;
+      border: 0px;
+    }
     #characterSelect {
       height: 95%;
     }
