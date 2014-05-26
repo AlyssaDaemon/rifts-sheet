@@ -3,8 +3,8 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-js/angular.js
-js/angular-route.js
+js/angular.min.js
+js/angular-route.min.js
 js/common-objects.js
 js/web-controller.js
 js/app.js
