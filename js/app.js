@@ -239,6 +239,18 @@ Riftsapp.controller('combatScreen', function($scope){
   $scope.delImplant = function(index) {
     $scope.c.abilities.splice(index, 1);
   }
+
+  $scope.newExtraAtk = function () {
+    $scope.c.h2hskill.atks.extra.push(new ExtraH2HAtk());
+  }
+
+  $scope.delExtraAtk = function(index) {
+    $scope.c.h2hskill.atks.extra.splice(index, 1);
+  }
+
+  if ($scope.c.h2hskill.atks.extra === undefined ) {
+    $scope.c.h2hskill.atks.extra = [];
+  }
 });
 
 Riftsapp.controller('spellScreen', function($scope){

@@ -145,6 +145,22 @@
             <input type="text" ng-model="c.h2hskill.atks.stomp"/>
           </td>
         </tr>
+        <tr ng-repeat="atk in c.h2hskill.atks.extra">
+          <td>
+            <input type="text" ng-model="atk.name" />
+          </td>
+          <td>
+            <input type="text" ng-model="atk.value" class="extraAtkValue"/>
+            <button class="btn btn-xs btn-danger" ng-click="delExtraAtk($index)">
+              <i class="fa fa-times fa"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" ng-click="newExtraAtk()" value="[New Extra Attack]"/>
+          </td>
+        </tr>
       </table>
     </div>
   </div>
@@ -226,8 +242,8 @@
             <td class="modernWeaponDamage"><input type="text" ng-model="wep.damage"/></td>
             <td class="modernWeaponRange"><input type="number" ng-model="wep.range"/>m</td>
             <td class="modernWeaponPayload">
-              <input type="number" ng-model="wep.payload.cur"/>/
-              <input type="number" ng-model="wep.payload.max">
+              <input type="text" ng-model="wep.payload.cur"/>/
+              <input type="text" ng-model="wep.payload.max"/>
             </td>
             <td class="modernWeaponBonus">
               (+<input type="number" ng-model="wep.aim"/>

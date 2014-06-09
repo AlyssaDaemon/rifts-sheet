@@ -285,7 +285,8 @@ function Character(){
       tackle: null,
       flip: null,
       bite: null,
-      stomp: null
+      stomp: null,
+      extra: [new ExtraH2HAtk()]
     }
   }
   this.saves = {
@@ -373,6 +374,11 @@ function Character(){
   this.spells = []; //new Array(new Spell());
   this.vehicles = []; //new Array(new Vehicle());
   this.notes = [new Note()]; //new Array(new Note());
+}
+
+function ExtraH2HAtk() {
+  this.name = null;
+  this.value = null;
 }
 
 function Settings(){

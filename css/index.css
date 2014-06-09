@@ -474,6 +474,10 @@ input[type="text"], input[type="number"], textarea, input[type="date"]  {
   width: 8%;
 }
 
+.modernWeaponPayload input {
+  width: 45%;
+}
+
 .modernWeaponBonus {
   width: 10%;
 }
@@ -552,6 +556,11 @@ textarea.savings {
 
 .vehicleWepSysNam, .vehicleWepSysDam {
   width: 12%;
+}
+
+.extraAtkValue {
+  display: inline-block;
+  width: 85%;
 }
 
 /* iPad */
