@@ -341,6 +341,11 @@ input.addButton {
 div.skillObject, div.inventoryObject {
   position: relative;
   width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+}
+input[ng-model="inv.name"] {
+  flex-grow: 1;
 }
 
 input.skillName {
